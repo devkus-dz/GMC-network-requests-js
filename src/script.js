@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const BASE_URL = "https://api.weatherapi.com/v1/forecast.json";
-const API_KEY = "fc438205e9af491fa70135540251111"; // Replace with your WeatherAPI key
+const API_KEY = "YOUR_API_KEY"; // Replace with your WeatherAPI key
 const DEFAULT_CITY = "Algiers";
 
 
