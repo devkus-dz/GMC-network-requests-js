@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Weather App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css">
+
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+  <div class="w-full max-w-lg bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 space-y-6">
+
+    <!-- Search -->
+    <header>
+      <form id="search-form" class="flex w-full space-x-2">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a city..."
+          class="flex-1 p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+        />
+        <button
+          type="submit"
+          class="p-3 bg-blue-600 text-white rounded-xl shadow-md hover:bg-blue-700 transition duration-200"
+          aria-label="Search"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+          </svg>
+        </button>
+      </form>
+    </header>
+
+    <!-- Current Weather -->
+    <main id="weather-display" class="text-center space-y-2">
+      <div id="weather-icon" class="text-8xl">☀️</div>
+      <h1 id="temperature" class="text-7xl font-extrabold text-gray-900">24°C</h1>
+      <p id="weather-description" class="text-2xl text-gray-700 font-medium">Sunny</p>
+      <h2 id="location" class="text-3xl text-gray-800 font-semibold">Algiers, Algeria</h2>
+    </main>
+
+    <!-- Details -->
+    <section id="weather-details" class="hidden pt-4 border-t border-slate-200">
+      <h3 class="text-lg font-bold text-gray-800 mb-3 text-center">Details</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div class="flex flex-col items-center justify-center bg-blue-50 p-4 rounded-xl shadow-inner text-center">
+          <span class="text-sm text-blue-800 font-medium">Feels Like</span>
+          <span id="feels-like" class="text-xl font-bold text-blue-900">19°C</span>
+        </div>
+        <div class="flex flex-col items-center justify-center bg-blue-50 p-4 rounded-xl shadow-inner text-center">
+          <span class="text-sm text-blue-800 font-medium">Humidity</span>
+          <span id="humidity" class="text-xl font-bold text-blue-900">65%</span>
+        </div>
+        <div class="flex flex-col items-center justify-center bg-blue-50 p-4 rounded-xl shadow-inner text-center">
+          <span class="text-sm text-blue-800 font-medium">Wind Speed</span>
+          <span id="wind-speed" class="text-xl font-bold text-blue-900">12 km/h</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forecast -->
+    <section id="forecast" class="hidden mt-6 pt-4 border-t border-slate-200">
+      <h2 class="text-xl font-semibold mb-3 text-blue-900">3-Day Forecast</h2>
+      <div
+        id="forecast-container"
+        class="flex flex-row space-x-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory"
+      ></div>
+    </section>
+    
+
+    <!-- Error -->
+    <div id="error-message" class="hidden p-4 bg-red-100 text-red-700 rounded-lg text-center">
+      City not found. Please try again.
+    </div>
+
+  </div>
+
+  <!-- Load script -->
+  <script type="module" src="/src/script.js"></script>
+</body>
+</html>
